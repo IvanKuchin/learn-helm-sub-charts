@@ -6,3 +6,8 @@ api:
   targetNamespace: api
   image:
     tag: "v0.0.4321"
+openapi:
+  targetNamespace: openapi
+  image:
+    tag: "v0.0.5678"
+    

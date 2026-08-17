@@ -1,9 +1,12 @@
 dependencies:
 - name: www
   repository: file://../www
-  version: 0.3.2
+  version: 0.3.3
 - name: api
   repository: file://../api
-  version: 0.2.1
-digest: sha256:7af8cea9c0349db0d0bb4839545ec6fc4d4baeed8f794c4172cd97429367a68e
-generated: "2026-08-16T15:43:28.97004174-04:00"
+  version: 0.2.2
+- name: openapi
+  repository: file://../openapi
+  version: 0.7.6
+digest: sha256:1b402b9314b654b02851b19a87b620518252071383b196b354a40bb8c004e681
+generated: "2026-08-17T19:41:06.940876365-04:00"

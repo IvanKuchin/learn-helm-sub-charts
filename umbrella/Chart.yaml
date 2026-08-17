@@ -25,8 +25,11 @@ appVersion: "0.5.2"
 
 dependencies:
   - name: www
-    version: 0.3.2
+    version: 0.3.3
     repository: "file://../www"
   - name: api
-    version: 0.2.1
+    version: 0.2.2
     repository: "file://../api"
+  - name: openapi
+    version: 0.7.6
+    repository: "file://../openapi"
