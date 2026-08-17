@@ -1,0 +1,9 @@
+dependencies:
+- name: www
+  repository: file://../www
+  version: 0.3.2
+- name: api
+  repository: file://../api
+  version: 0.2.1
+digest: sha256:7af8cea9c0349db0d0bb4839545ec6fc4d4baeed8f794c4172cd97429367a68e
+generated: "2026-08-16T15:43:28.97004174-04:00"

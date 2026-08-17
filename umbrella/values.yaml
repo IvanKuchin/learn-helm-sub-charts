@@ -1,0 +1,8 @@
+www:
+  targetNamespace: www
+  image:
+    tag: "v0.0.1234"
+api:
+  targetNamespace: api
+  image:
+    tag: "v0.0.4321"
