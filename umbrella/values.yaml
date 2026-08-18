@@ -1,4 +1,4 @@
-frontend`:
+frontend:
   targetNamespace: www
   image:
     repository: gcr.io/ivankuchin/helm-lesson3-sub-helms-www
