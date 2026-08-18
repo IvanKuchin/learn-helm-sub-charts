@@ -35,6 +35,8 @@ jobs:
           echo "api_tag=$API_TAG" >> $GITHUB_OUTPUT
           echo "openapi_tag=$OPENAPI_TAG" >> $GITHUB_OUTPUT
           echo "frontend_tag=$FRONTEND_TAG" >> $GITHUB_OUTPUT
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Update umbrella/values.yaml with New Microservice Versions
         env:
