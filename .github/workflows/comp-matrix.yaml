@@ -73,5 +73,5 @@ jobs:
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
           git add $VALUES_FILE
           git commit -m "chore(matrix): release microservice versions (db: $NEW_DB, api: $NEW_API, openapi: $NEW_OPENAPI, frontend: $NEW_FRONTEND)"
-          git push origin master
+          # git push origin master
 
