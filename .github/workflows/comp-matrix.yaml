@@ -17,10 +17,21 @@ jobs:
       - name: Fetch Latest Microservice Tags
         id: fetch-tags
         run: |
-          DB_TAG=$(gh api repos/ivankuchin/test-container/tags --jq '.[].name' | sort -V | tail -n 1)
-          API_TAG=$(gh api repos/ivankuchin/test-container/tags --jq '.[].name' | sort -V | tail -n 1)
-          OPENAPI_TAG=$(gh api repos/ivankuchin/test-container/tags --jq '.[].name' | sort -V | tail -n 1)
-          FRONTEND_TAG=$(gh api repos/ivankuchin/test-container/tags --jq '.[].name' | sort -V | tail -n 1)
+          DB_REPO=$(yq eval '.db.image.repository' umbrella/values.yaml)
+          API_REPO=$(yq eval '.api.image.repository' umbrella/values.yaml)
+          OPENAPI_REPO=$(yq eval '.openapi.image.repository' umbrella/values.yaml)
+          FRONTEND_REPO=$(yq eval '.frontend.image.repository' umbrella/values.yaml)
+
+          # cut the repository name from the full path (e.g., gcr.io/ivankuchin/test-container -> ivankuchin/test-container)
+          DB_REPO=${DB_REPO#*/}
+          API_REPO=${API_REPO#*/}
+          OPENAPI_REPO=${OPENAPI_REPO#*/}
+          FRONTEND_REPO=${FRONTEND_REPO#*/}
+
+          DB_TAG=$(gh api repos/$DB_REPO/tags --jq '.[].name' | sort -V | tail -n 1)
+          API_TAG=$(gh api repos/$API_REPO/tags --jq '.[].name' | sort -V | tail -n 1)
+          OPENAPI_TAG=$(gh api repos/$OPENAPI_REPO/tags --jq '.[].name' | sort -V | tail -n 1)
+          FRONTEND_TAG=$(gh api repos/$FRONTEND_REPO/tags --jq '.[].name' | sort -V | tail -n 1)
 
           echo "db_tag=$DB_TAG" >> $GITHUB_OUTPUT
           echo "api_tag=$API_TAG" >> $GITHUB_OUTPUT

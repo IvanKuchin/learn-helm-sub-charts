@@ -1,24 +1,24 @@
 frontend:
-  targetNamespace: www
+  targetNamespace: test2-www
   image:
-    repository: gcr.io/ivankuchin/helm-lesson3-sub-helms-www
+    repository: gcr.io/ivankuchin/test-container
     pullPolicy: IfNotPresent
     tag: "v0.0.1234"
 api:
-  targetNamespace: api
+  targetNamespace: test2-api
   image:
-    repository: gcr.io/ivankuchin/helm-lesson3-sub-helms-api
+    repository: gcr.io/ivankuchin/test-container
     pullPolicy: IfNotPresent
     tag: "v0.0.4321"
 openapi:
-  targetNamespace: openapi
+  targetNamespace: test2-openapi
   image:
-    repository: gcr.io/ivankuchin/helm-lesson3-sub-helms-openapi
+    repository: gcr.io/ivankuchin/test-container
     pullPolicy: IfNotPresent
     tag: "v0.0.5678"
 db:
-  targetNamespace: db
+  targetNamespace: test2-db
   image:
-    repository: gcr.io/ivankuchin/helm-lesson3-sub-helms-db
+    repository: gcr.io/ivankuchin/test-container
     pullPolicy: IfNotPresent
     tag: "v0.0.8765"
