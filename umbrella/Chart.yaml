@@ -24,12 +24,15 @@ version: 0.0.1
 appVersion: "0.5.2"
 
 dependencies:
-  - name: www
-    version: 0.3.3
-    repository: "file://../www"
+  - name: frontend
+    version: 0.3.4
+    repository: "file://../frontend"
   - name: api
-    version: 0.2.2
+    version: 0.2.3
     repository: "file://../api"
   - name: openapi
-    version: 0.7.6
+    version: 0.7.7
     repository: "file://../openapi"
+  - name: db
+    version: 0.1.4
+    repository: "file://../db"

@@ -9,9 +9,9 @@ targetNamespace: will be_populated_by_helm
 
 # This sets the container image more information can be found here: https://kubernetes.io/docs/concepts/containers/images/
 image:
-  repository: gcr.io/ivankuchin/helm-lesson3-sub-helms-openapi
+  repository: will_be_populated_by_helm
   # This sets the pull policy for images.
-  pullPolicy: IfNotPresent
+  pullPolicy: will_be_populated_by_helm
   # Overrides the image tag whose default is the chart appVersion.
   tag: will_be_populated_by_helm
 

@@ -1,13 +1,24 @@
-www:
+frontend`:
   targetNamespace: www
   image:
+    repository: gcr.io/ivankuchin/helm-lesson3-sub-helms-www
+    pullPolicy: IfNotPresent
     tag: "v0.0.1234"
 api:
   targetNamespace: api
   image:
+    repository: gcr.io/ivankuchin/helm-lesson3-sub-helms-api
+    pullPolicy: IfNotPresent
     tag: "v0.0.4321"
 openapi:
   targetNamespace: openapi
   image:
+    repository: gcr.io/ivankuchin/helm-lesson3-sub-helms-openapi
+    pullPolicy: IfNotPresent
     tag: "v0.0.5678"
-    
+db:
+  targetNamespace: db
+  image:
+    repository: gcr.io/ivankuchin/helm-lesson3-sub-helms-db
+    pullPolicy: IfNotPresent
+    tag: "v0.0.8765"
