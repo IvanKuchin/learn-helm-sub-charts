@@ -3,22 +3,22 @@ frontend:
   image:
     repository: ghcr.io/ivankuchin/test-container
     pullPolicy: IfNotPresent
-    tag: "v0.0.8"
+    tag: "v0.0.9"
 api:
   targetNamespace: test2-api
   image:
     repository: ghcr.io/ivankuchin/test-container
     pullPolicy: IfNotPresent
-    tag: "v0.0.8"
+    tag: "v0.0.9"
 openapi:
   targetNamespace: test2-openapi
   image:
     repository: ghcr.io/ivankuchin/test-container
     pullPolicy: IfNotPresent
-    tag: "v0.0.8"
+    tag: "v0.0.9"
 db:
   targetNamespace: test2-db
   image:
     repository: ghcr.io/ivankuchin/test-container
     pullPolicy: IfNotPresent
-    tag: "v0.0.8"
+    tag: "v0.0.9"
