@@ -39,6 +39,7 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Update umbrella/values.yaml with New Microservice Versions
+        id: check-updates
         env:
           NEW_DB: ${{ steps.fetch-tags.outputs.db_tag }}
           NEW_API: ${{ steps.fetch-tags.outputs.api_tag }}
@@ -54,8 +55,11 @@ jobs:
 
           if [ "$CURRENT_DB" == "$NEW_DB" ] && [ "$CURRENT_API" == "$NEW_API" ] && [ "$CURRENT_OPENAPI" == "$NEW_OPENAPI" ] && [ "$CURRENT_FRONTEND" == "$NEW_FRONTEND" ]; then
             echo "No new versions to update. Exiting."
+            echo "update_needed=false" >> $GITHUB_OUTPUT
             exit 0
           fi
+
+          echo "update_needed=true" >> $GITHUB_OUTPUT
 
           echo "DB: $CURRENT_DB -> $NEW_DB"
           echo "API: $CURRENT_API -> $NEW_API"
@@ -69,6 +73,7 @@ jobs:
           yq eval -i ".frontend.image.tag = \"$NEW_FRONTEND\"" $VALUES_FILE
 
       - name: Bump Microservice Chart Versions
+        if: steps.check-updates.outputs.update_needed == 'true'
         run: |
           CHART_FILE="umbrella/Chart.yaml"
 
@@ -87,6 +92,7 @@ jobs:
           yq eval -i ".version = \"$NEW_VERSION\"" $CHART_FILE
 
       - name: Commit and Push Changes
+        if: steps.check-updates.outputs.update_needed == 'true'
         run: |
           # 5. Commit and push atomically
           git config --global user.name "github-actions[bot]"
